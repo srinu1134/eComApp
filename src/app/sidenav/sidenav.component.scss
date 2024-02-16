@@ -1,0 +1,13 @@
+.side-nav-container {
+    padding: 10px;
+    box-sizing: border-box;
+    color: #232f3e;
+    .mat-list-option {
+        height: 35px;
+        ::ng-deep {
+            .mat-list-item-content {
+                padding: 0 !important;
+            }
+        }
+    }
+}

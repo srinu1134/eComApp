@@ -1,0 +1,11 @@
+.top-menu {
+    background-color: #232f3e;
+    .nav-link {
+        color: #fff;
+        &.Active {
+            border: 1px solid #fff;
+            color: blue;
+            background: lightblue;
+        } 
+    }
+}

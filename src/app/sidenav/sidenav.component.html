@@ -1,0 +1,8 @@
+<div class="side-nav-container">
+    <h5>Filters</h5>
+    <mat-selection-list #shoes>
+        <mat-list-option *ngFor="let company of companyList">
+            {{company.name}}
+        </mat-list-option>
+    </mat-selection-list>
+</div>

@@ -1,0 +1,78 @@
+<div class="login-content">
+    <mat-card>
+        <div class="login">
+            <h4>Login form</h4>
+            <p>Have an account? please sign-in</p>
+        </div>
+        <div class="social-login">
+            <a mat-raised-button><i class="fa-brands fa-apple"></i></a>
+            <a mat-raised-button><i class="fa-brands fa-google"></i></a>
+            <a mat-raised-button><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <p class="or">or</p>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="container">
+                <div class="error" *ngIf="hasError">Invalid Username or password</div>
+                <label for="uname"><b>Username</b></label>
+                <input type="text" (input)="clearError()" formControlName="userName" maxlength="50"
+                    placeholder="Enter Username" name="uname">
+                <ng-container
+                    *ngIf="(getControl('userName').touched || getControl('userName').dirty) && getControl('userName').invalid">
+                    <div class="error" *ngIf="getControl('userName').errors['required']">User Name is required
+                    </div>
+                    <div class="error" *ngIf="getControl('userName').errors['minlength']">Min. 8 chars required
+                        for User Name</div>
+                </ng-container>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" (input)="clearError()" formControlName="password" placeholder="Enter Password"
+                    name="psw">
+                <div class="error"
+                    *ngIf="(getControl('password').touched || getControl('password').dirty) && getControl('password').invalid && getControl('password').errors['required']">
+                    Password is required
+                </div>
+                <div class="error"
+                    *ngIf="(getControl('password').touched || getControl('password').dirty) && getControl('password').invalid && getControl('password').errors['invalidPwd']">
+                    Password is Invalid
+                </div>
+                <!-- <mat-form-field>
+                <mat-label>Enter Username</mat-label>
+                <input matInput formControlName="userName">
+                 <mat-error *ngif="loginForm.getControl('userName').hasError('minlength(8)')">Min. 8 chars required for
+                    User Name
+                </mat-error>
+                </mat-form-field>
+                <ng-container
+                *ngIf="(getControl('userName').touched || getControl('userName').dirty) && getControl('userName').invalid">
+                <div class="error" *ngIf="getControl('userName').errors['minlength']">
+                    Min. 8 chars required for User Name
+                </div>
+            </ng-container>
+            <mat-form-field>
+                <mat-label>Enter password</mat-label>
+                <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <div class="error"
+                *ngIf="(getControl('password').touched || getControl('password').dirty) && getControl('password').invalid && getControl('password').errors['invalidPwd']">
+                Password is Invalid
+            </div> -->
+                <div class="bottom">
+                    <div class="left">
+                        <label for="check"><input type="checkbox" id="check"> Remember Me</label>
+                    </div>
+                    <div class="right">
+                        <label><a href="forgot-password">Forgot Password?</a></label>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                    <label><a href="Register">Register</a></label>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+
+</div>
