@@ -1,0 +1,13 @@
+.main-container {
+    display: flex;
+    height: 80vh;
+    margin: 10px;
+    .side-menu {
+        flex-grow: 1;
+        border: 2px solid #ddd;
+    }
+
+    .main-content {
+        flex-grow: 4;
+    }
+}

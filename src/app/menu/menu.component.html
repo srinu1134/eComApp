@@ -1,0 +1,7 @@
+<div class="top-menu">
+<ul class="nav">
+    <li class="nav-item" *ngFor="let item of menu">
+      <a class="nav-link" [routerLink]="item.route" routerLinkActive="Active" *ngIf="item.isActive">{{item.name}}</a>
+    </li>
+  </ul>
+</div>

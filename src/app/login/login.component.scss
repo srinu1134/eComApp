@@ -1,0 +1,79 @@
+.input-field {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+
+
+.login-content {
+    display: flex;
+    justify-content: center;
+
+    .login {
+        text-align: center;
+        margin-top: 20px;
+
+        h4 {
+            margin-bottom: 0px;
+        }
+    }
+
+    .social-login {
+        display: flex;
+        justify-content: space-evenly;
+
+        i {
+            font-size: 20px;
+            color: blue;
+        }
+    }
+
+    .or {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 15px;
+        margin-bottom: 0%;
+    }
+
+    .container {
+        padding: 16px;
+        overflow: hidden;
+
+        &.links {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: medium;
+            margin: 0px 5px;
+        }
+    }
+
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+}
+
+mat-card {
+    min-height: 350px;
+    border: 2px #ccc;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px;
+    padding: 15px;
+}

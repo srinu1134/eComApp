@@ -1,0 +1,14 @@
+.item-list-container {
+    padding-left: 15px;
+    .items {
+        display: flex;
+        gap: 10px;
+        .item {
+            width: 200px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 1px 1px 1px 1.5px #ddd;
+            min-height: 200px;
+        }
+    }
+}
