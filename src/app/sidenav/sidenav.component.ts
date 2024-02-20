@@ -18,11 +18,17 @@ export class SidenavComponent implements OnInit {
     this.activatedRoute.params.subscribe((params:any)=>{
       this.typeId = params.typeId;
       this.getCompanyList();
+      this.getItemList();
     })
   }
   getCompanyList(){
     this.itemService.getCompanyList(this.typeId).subscribe((items)=>{
       this.companyList = items;
+      
     })
+  }
+  
+  getItemList() {
+    this.itemService.getItemList(this.typeId);
   }
 }

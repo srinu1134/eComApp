@@ -14,6 +14,9 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { SidenavModule } from './sidenav/sidenav.module';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { CartComponent } from './cart/cart.component';
+import { SummaryComponent } from './summary/summary.component';
 
 
 @NgModule({
@@ -27,14 +30,19 @@ import { SidenavModule } from './sidenav/sidenav.module';
     FooterComponent,
     MenuComponent,
     ItemListComponent,
+    ToolbarComponent,
+    CartComponent,
+    SummaryComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule,
-    LoginModule,SidenavModule
+    // FormsModule, 
+    // ReactiveFormsModule,
+    LoginModule,
+    SidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

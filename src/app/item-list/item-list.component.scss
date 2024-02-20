@@ -3,6 +3,33 @@
     .items {
         display: flex;
         gap: 10px;
+        .name{
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .description{
+            font-size: 12px;
+            color: #0F1111!important;
+        }
+        .price{
+            font-size: 10px;
+            span{
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+        .quantity{
+            font-size: 12px;
+        }
+        button{
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 20px;
+            width: 170px;
+            padding: 4px;
+            font-size: 10px;
+        }
         .item {
             width: 200px;
             border: 1px solid #ddd;
@@ -11,4 +38,10 @@
             min-height: 200px;
         }
     }
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
