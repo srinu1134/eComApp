@@ -1,11 +1,19 @@
 <app-header></app-header>
-<app-menu></app-menu>
+<ng-container *ngIf="!isLoginPage">
+    <app-menu></app-menu>
+    <app-toolbar *ngIf="!isCart"></app-toolbar>
+</ng-container>
 <div class="main-container">
-    <div class="side-menu">
-        <app-sidenav></app-sidenav>
-    </div>
+    <ng-container *ngIf="!isLoginPage && !isCart">
+        <div class="side-menu">
+            <app-sidenav></app-sidenav>
+        </div>
+    </ng-container>
     <div class="main-content">
         <router-outlet></router-outlet>
     </div>
+    <div class="right-menu" *ngIf="isCart">
+        <app-summary></app-summary>
+      </div>
 </div>
 <app-footer></app-footer>

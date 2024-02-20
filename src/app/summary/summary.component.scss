@@ -1,0 +1,29 @@
+.summary-container{
+    width: 200px;
+    padding: 10px;
+   .header-container {
+    margin-bottom: 15px;
+   }
+    .header-content {
+        font-size: 10px;
+        color: green;
+        margin: 0;
+    }
+    .subtotal {
+        font-size: 14px;
+        span {
+            font-weight: 700;
+        }
+    }
+    .checkbox-content{
+        display: flex;
+        gap: 5px;
+        font-size: 12px;
+    }
+    .btn-warning {
+        border-radius: 28px;
+        font-size: 12px;
+        width: 170px;
+        margin-top: 10px;
+    }
+}
