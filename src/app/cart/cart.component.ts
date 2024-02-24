@@ -7,16 +7,10 @@ import { ItemService } from '../Services/item.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  itemList: any = [];
-  numbers: any = ['1','2','3','4','5'];
-  constructor(private itemService: ItemService) { }
+  quantityList: any = ['1','2','3','4','5'];
+  constructor(public itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.itemService.itemsData.subscribe((data: any) => {
-      if(data) {
-        this.itemList = data.results;
-        // this.numberOfPages = Math.ceil(data.totalResults / this.pageSize);
-      }
-    })
+   
   }
 }

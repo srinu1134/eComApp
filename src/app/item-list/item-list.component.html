@@ -1,33 +1,37 @@
 <div class="item-list-container">
     <h2>Items List</h2>
     <div class="items">
-        <div class="item" *ngFor="let item of itemList"> 
-            <img [src]="item.imgUrl" width="180px" height="180px">
-            <div class="name">{{item.name}}</div>
-            <div class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</div>
-            <div class="price"><span>₹24,999</span> M.R.P: <del>₹26,999</del> (7% off)</div>
-            <span class="quantity">Quantity:
-                <select name="quantity" autocomplete="off">
-                    <option selected="" value="1" *ngFor="let num of numbers">{{num}}</option>
-                </select>
-            </span>
-            <button type="button" class="btn btn-warning">Add to Cart</button>
-            <button type="button" class="btn btn-info">Buy Now</button>
-        </div>
+        <ng-container *ngFor="let item of itemList; let i =  index">
+            <br *ngIf="i > 0 && i % 4 == 0" />
+            <div class="item">
+                <img [src]="item.imgUrl" width="180px" height="180px">
+                <div class="name">{{item.name}}</div>
+                <div class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</div>
+                <div class="price"><span>₹{{item.price}}</span> M.R.P: <del>₹30</del> (7% off)</div>
+                <span class="quantity">Quantity:
+                    <select name="quantity" autocomplete="off" [(ngModel)]="item.quantity">
+                        <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
+                    </select>
+                </span>
+                <button type="button" class="btn btn-warning" (click)="addToCart(item)">Add to Cart</button>
+                <button type="button" class="btn btn-info">Buy Now</button>
+            </div>
+        </ng-container>
     </div>
+    <div *ngIf="itemList.length === 0">No items found.</div>
 </div>
-<div class="pagination-container">
+<div class="pagination-container" *ngIf="itemList.length">
     <nav aria-label="...">
         <ul class="pagination">
-            <li class="page-item disabled">
-                <a class="page-link" tabindex="-1" aria-disabled="true">Previous</a>
+            <li class="page-item" [class.disabled]="seletedPage == 1">
+                <a class="page-link" (click)="onSelectPage(seletedPage - 1)">Previous</a>
             </li>
-            <li class="page-item" [class.active]="i == seletedPage" aria-current="page" *ngFor="let i of numberOfPagesArray"
-                (click)="onSelectPage(i)">
+            <li class="page-item" [class.active]="i == seletedPage" aria-current="page"
+                *ngFor="let i of pageNumbers" (click)="onSelectPage(i)">
                 <a class="page-link">{{i}}</a>
             </li>
-            <li class="page-item">
-                <a class="page-link">Next</a>
+            <li class="page-item" [class.disabled]="seletedPage == numberOfPages">
+                <a class="page-link" (click)="onSelectPage(seletedPage + 1)">Next</a>
             </li>
         </ul>
     </nav>

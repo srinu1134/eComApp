@@ -1,8 +1,6 @@
 .item-list-container {
     padding-left: 15px;
     .items {
-        display: flex;
-        gap: 10px;
         .name{
             font-size: 12px;
             font-weight: 700;
@@ -35,7 +33,10 @@
             border: 1px solid #ddd;
             padding: 10px;
             box-shadow: 1px 1px 1px 1.5px #ddd;
-            min-height: 200px;
+            min-height: 200px;            
+            display: inline-block;
+            margin-left: 15px;
+            margin-top: 15px;
         }
     }
 }
@@ -44,4 +45,4 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
+}   

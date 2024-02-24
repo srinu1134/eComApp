@@ -1,6 +1,6 @@
 .main-container {
     display: flex;
-    height: 80vh;
+    min-height: 430px;
     margin: 10px;
     .side-menu {
         flex-grow: 1;
@@ -9,5 +9,10 @@
 
     .main-content {
         flex-grow: 4;
+    }
+    .right-menu{
+        border: 2px solid #ddd;
+        height: 224px;
+        margin-left: 10px;
     }
 }

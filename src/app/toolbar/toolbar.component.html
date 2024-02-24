@@ -1,13 +1,26 @@
 <div class="toolbar-container">
     <div class="item-cnt">
-        1-10 of {{totalResults}} results
+        {{itemRange}} of {{totalResults}} results
     </div>
     <div class="filter-sort-container">
         <div class="filter">
-            filters
+            <mat-chip-listbox>
+                <mat-chip-option *ngFor="let filter of itemService.filters$ | async; let i = index"
+                 (removed)="remove(i)">
+                    {{filter.name}}
+                    <button matChipRemove>
+                        <i class="bi bi-x-circle"></i>
+                    </button>
+                </mat-chip-option>
+            </mat-chip-listbox>
         </div>
         <div class="sorting">
-            soring
+            <select autocomplete="off" (change)="onSort($event)" [(ngModel)]="selectedSort">
+                <option [value]="option.id" *ngFor="let option of sortOptions">
+                    {{option.name}}
+                </option>
+
+            </select>
         </div>
     </div>
 </div>
