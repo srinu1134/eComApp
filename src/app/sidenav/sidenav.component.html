@@ -1,7 +1,7 @@
 <div class="side-nav-container">
     <h5>Filters</h5>
-    <mat-selection-list #shoes>
-        <mat-list-option *ngFor="let company of companyList">
+    <mat-selection-list #filterList (selectionChange)="selectionChange(filterList.selectedOptions.selected)">
+        <mat-list-option *ngFor="let company of companyList" [value]="company" [selected]="company.selected">
             {{company.name}}
         </mat-list-option>
     </mat-selection-list>

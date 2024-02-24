@@ -17,6 +17,7 @@ import { SidenavModule } from './sidenav/sidenav.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CartComponent } from './cart/cart.component';
 import { SummaryComponent } from './summary/summary.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -39,10 +40,10 @@ import { SummaryComponent } from './summary/summary.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // FormsModule, 
-    // ReactiveFormsModule,
+    FormsModule, 
     LoginModule,
-    SidenavModule
+    SidenavModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,7 +17,13 @@
             <a routerLink="login">Sign in!</a>
         </ng-template>
     </div>
-    <div class="cart-container" routerLink="cart">
-        <i class="bi bi-cart"></i>
+    <div class="cart-container">
+        <a routerLink="cart">
+            <i class="bi bi-cart position-relative">
+                <span *ngIf="quantity" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                   {{quantity}} <span class="visually-hidden">New alerts</span>
+                </span>
+            </i>
+        </a>
     </div>
 </div>
