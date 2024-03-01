@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { HomeComponent } from './home/home.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent,title:'Home'},
   {path:'cart',component:CartComponent,title:'Cart'},
   {path:'Register',component:RegistrationComponent,title:'Register'},
+  {path:'checkout',component:CheckoutComponent,title:'checkout'},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'itemList/:typeId',component:ItemListComponent,title:'Item List'},
   {path:'**',component:PageNotFoundComponent,title:'wild-card-route'}

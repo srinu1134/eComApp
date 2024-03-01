@@ -13,4 +13,31 @@ export class CartComponent {
   ngOnInit(): void {
    
   }
+
+  onQtyChange(cartItems:any){
+    this.itemService.cartInfo$.next(cartItems);
+  }
+  onDelete(i:any , cartItems:any){
+    cartItems.splice(i, 1);
+    this.itemService.cartInfo$.next(cartItems);
+  }
+  onSavedLater(i:any , item:any, cartItems:any) {
+    let items: any;
+    this.itemService.savedLater$.subscribe((savedInfo:any)=>{
+      items = savedInfo;
+    }).unsubscribe();
+    this.itemService.savedLater$.next([...items, item]);
+    cartItems.splice(i,1);
+    this.itemService.cartInfo$.next(cartItems);
+
+  }
+  onMoveToCart(i:any, item:any, savedItems:any) {
+    let items: any;
+    this.itemService.cartInfo$.subscribe((cartInfo:any)=>{
+      items = cartInfo;
+    }).unsubscribe();
+    this.itemService.cartInfo$.next([...items, item]);
+    savedItems.splice(i, 1);
+    this.itemService.savedLater$.next(savedItems);
+  }
 }

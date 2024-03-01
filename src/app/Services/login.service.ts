@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject, of } from 'rxjs';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { BehaviorSubject, of } from 'rxjs';
 })
 export class LoginService {
   user$:BehaviorSubject<any> = new BehaviorSubject<any>(null);
-
+  isCheckoutOn: boolean = false;
   constructor() { }
   validateUser(userName: string, password: string) {
     // if(userName === 'test123' && password === 'test123') {

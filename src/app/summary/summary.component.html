@@ -1,4 +1,4 @@
-<div class="summary-container">
+<div class="summary-container" *ngIf="!loginService.isCheckoutOn ; else checkoutSummary">
     <div class="header-container">
         <p class="header-content">Your order is eligible for FREE Delivery</p>
         <p class="header-content">Select this option at checkout. <a href="">Details</a></p>
@@ -8,5 +8,8 @@
         <input type="checkbox" checked/>
         <span>This order contains a gift</span>
     </div>
-    <button type="button" class="btn btn-warning">Proceed to Buy</button>
+    <button type="button" class="btn btn-warning" (click)="onProceedToBuy()">Proceed to Buy</button>
 </div>
+<ng-template #checkoutSummary>
+    <div class="summary-container">Checkout summary content</div>
+</ng-template>

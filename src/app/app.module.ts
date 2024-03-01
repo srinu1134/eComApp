@@ -18,8 +18,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CartComponent } from './cart/cart.component';
 import { SummaryComponent } from './summary/summary.component';
 import {MatChipsModule} from '@angular/material/chips';
-
-
+import { CheckoutModule } from './checkout/checkout.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +32,7 @@ import {MatChipsModule} from '@angular/material/chips';
     ItemListComponent,
     ToolbarComponent,
     CartComponent,
-    SummaryComponent,
+    SummaryComponent
    
   ],
   imports: [
@@ -43,7 +42,9 @@ import {MatChipsModule} from '@angular/material/chips';
     FormsModule, 
     LoginModule,
     SidenavModule,
-    MatChipsModule
+    MatChipsModule,
+    CheckoutModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

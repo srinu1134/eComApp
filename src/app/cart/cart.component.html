@@ -4,29 +4,49 @@
         <p>Price</p>
     </div>
     <ng-container *ngIf="cartItems.length ; else noItems">
-    <div class="items" *ngFor="let item of cartItems">
-        <div class="img-container">
-            <img [src]="item.imgUrl" width="150px" height="150px">
-        </div>
-        <div class="description-container">
-            <div>
-                <p class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</p>
-                <span>₹{{item.price}}</span>
+        <div class="items" *ngFor="let item of cartItems; let i = index">
+            <div class="img-container">
+                <img [src]="item.imgUrl" width="150px" height="150px">
             </div>
-            <div class="">In stock</div>
-            <div>Eligible For Free Shipping</div>
-            <span class="qty-container">
-                <span>Qty: </span>
-                <select name="quantity" autocomplete="off" [ngModel]="item.quantity">
-                    <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
-                </select>
-            </span>
+            <div class="description-container">
+                <div>
+                    <p class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</p>
+                    <span>₹{{item.price}}</span>
+                </div>
+                <div class="">In stock</div>
+                <div>Eligible For Free Shipping</div>
+                <span class="qty-container">
+                    <span>Qty: </span>
+                    <select name="quantity" autocomplete="off" [(ngModel)]="item.quantity"
+                        (change)="onQtyChange(cartItems)">
+                        <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
+                    </select>
+                </span>
+                <button type="button" class="btn btn-link" (click)="onDelete(i , cartItems)">Delete</button>
+                <button type="button" class="btn btn-link" (click)="onSavedLater(i ,item, cartItems)">Save later</button>
+            </div>
         </div>
-    </div>
     </ng-container>
     <ng-template #noItems>
         <div>
             No Items Added.Please add items.
         </div>
     </ng-template>
+</div>
+<br>
+<div class="cart-container" *ngIf="itemService.savedLater$ | async as savedItems">
+    <div class=" header-content">
+        <h4>Saved for later</h4>
+    </div>
+    <div class="saveitems">
+        <ng-container *ngFor="let item of savedItems; let i =  index">
+            <div class="item">
+                <img [src]="item.imgUrl" width="180px" height="180px">
+                <div class="name">{{item.name}}</div>
+                <div class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</div>
+                <div class="price"><span>₹{{item.price}}</span> M.R.P: <del>₹30</del> (7% off)</div>
+                <button type="button" class="btn btn-warning" (click)="onMoveToCart(i, item, savedItems)">Move to Cart</button>
+            </div>
+        </ng-container>
+    </div>
 </div>

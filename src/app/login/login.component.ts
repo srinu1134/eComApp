@@ -33,8 +33,12 @@ export class LoginComponent implements OnInit {
       this.loginService.validateUser(this.loginForm.value.userName, this.loginForm.value.password).subscribe((isValid) => {
         if (isValid) {
           sessionStorage.setItem('user', JSON.stringify(this.loginForm.value));
-          this.loginService.user$.next(this.loginForm.value);
+          this.loginService.user$.next({...this.loginForm.value, address: {name: 'test 123', phone: '234234141', address1: 'H.No: 123', address2: '', country: 1, state: 1, city: 'Pidugurall', pin: 522413, landMark: 'New Police station', isDefault: true}});
+          if(this.loginService.isCheckoutOn){
+            this.router.navigateByUrl('/checkout');
+          } else {
           this.router.navigateByUrl('/home');
+          }
         } else {
           this.handleError();
         }

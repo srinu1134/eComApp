@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'eComApp';
   isLoginPage:boolean = false;
   isCart:boolean = false;
+  isCheckout:boolean = false;
   constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
@@ -18,6 +19,8 @@ export class AppComponent implements OnInit {
       if(e instanceof NavigationEnd){
         this.isLoginPage = e.url.includes('login') || e.url.includes('forgot-password') || e.url.includes('Register');
         this.isCart = e.url.includes('cart');
+        this.isCheckout = e.url.includes('checkout');
+
       }
     })
   }

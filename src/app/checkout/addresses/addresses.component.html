@@ -1,0 +1,11 @@
+<h3>Your Addresses </h3>
+<div class="address-container">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let address of addressList">
+          <input class="form-check-input me-1" name="address" checked type="radio" value="" aria-label="...">
+          {{address.name}}, {{address.address1}}, {{address.address2 ? address.address2 + ',' : ''}} {{address.landMark}}, {{address.city}}, {{getState(address.state)}}, {{getCountry(address.country)}}, {{address.pin}} | 
+          <button type="button" class="btn btn-link" (click)="openNewAddressPopup()"> Edit address</button>    
+        </li>
+      </ul>
+</div>
+<button type="button" class="btn btn-link" (click)="openNewAddressPopup()">+ Add new address</button>
