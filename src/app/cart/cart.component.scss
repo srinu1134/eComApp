@@ -4,11 +4,45 @@
     .header-content{
         display: flex;
         justify-content: space-between;
+        border-bottom: 1px solid #ccc;
     }
     .items {
         display: flex;
         flex-direction: row;
         padding: 10px 0px;
         border-bottom: 1px solid #ccc;
+    }
+}
+.saveitems {
+    .name{
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .description{
+        font-size: 12px;
+        color: #0F1111!important;
+    }
+    .price{
+        font-size: 10px;
+    }
+   
+    button{
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 20px;
+        width: 170px;
+        padding: 4px;
+        font-size: 10px;
+    }
+    .item {
+        width: 200px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        box-shadow: 1px 1px 1px 1.5px #ddd;
+        min-height: 200px;            
+        display: inline-block;
+        margin-left: 15px;
+        margin-top: 15px;
     }
 }

@@ -1,10 +1,10 @@
 <app-header></app-header>
-<ng-container *ngIf="!isLoginPage">
+<ng-container *ngIf="!isLoginPage && !isCheckout">
     <app-menu></app-menu>
     <app-toolbar *ngIf="!isCart"></app-toolbar>
 </ng-container>
 <div class="main-container">
-    <ng-container *ngIf="!isLoginPage && !isCart">
+    <ng-container *ngIf="!isLoginPage && !isCart &&!isCheckout">
         <div class="side-menu">
             <app-sidenav></app-sidenav>
         </div>
@@ -12,7 +12,7 @@
     <div class="main-content">
         <router-outlet></router-outlet>
     </div>
-    <div class="right-menu" *ngIf="isCart">
+    <div class="right-menu" *ngIf="isCart || isCheckout">
         <app-summary></app-summary>
     </div>
 </div>

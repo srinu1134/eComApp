@@ -10,7 +10,7 @@ import { ItemService } from '../Services/item.service';
 export class HeaderComponent implements OnInit {
 user:any;
 quantity:number = 0;
-  constructor(private loginService:LoginService,public itemService:ItemService){}
+  constructor(public loginService:LoginService,public itemService:ItemService){}
   ngOnInit(): void {
     this.loginService.user$.subscribe((data:any)=>{
       if(data){

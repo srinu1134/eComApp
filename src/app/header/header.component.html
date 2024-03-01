@@ -3,12 +3,15 @@
         eComApp.in
     </div>
     <div class="search-container">
-        <div class="input-group">
+        <div class="input-group" *ngIf="!loginService.isCheckoutOn ; else checkout">
             <input type="text" class="form-control" placeholder="Search" aria-label="Search"
                 aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
                     class="bi bi-search"></i></button>
         </div>
+        <ng-template #checkout>
+            <h2>Checkout</h2>
+        </ng-template>
     </div>
     <div class="user-info">
         Hello,

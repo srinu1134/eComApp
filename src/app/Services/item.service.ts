@@ -10,6 +10,7 @@ export class ItemService {
   filters$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   companies$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   paginationData$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  savedLater$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   typeId: any = '';
   sortOption: any = [];
   companies: any = [
